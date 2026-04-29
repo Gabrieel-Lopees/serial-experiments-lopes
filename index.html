@@ -1,0 +1,57 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Serial Experiments Lopes</title>
+
+  <!-- Fonte Hack -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="ascii-bg">
+
+  </div>
+
+  <div class="overlay"></div>
+
+  <div class="container">
+    <h1>Serial Experiments Lopes</h1>
+
+    <form id="redirectForm">
+      <input
+        type="text"
+        id="username"
+        placeholder="enter..."
+        autocomplete="off"
+      />
+
+      <button type="submit">connect</button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("redirectForm");
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const value = document
+        .getElementById("username")
+        .value
+        .trim();
+
+      if(value){
+        window.location.href = "/" + encodeURIComponent(value);
+      }
+    });
+  </script>
+
+</body>
+</html>
