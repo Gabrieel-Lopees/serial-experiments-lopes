@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz Aniversário, Alice! 🎂</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- Partículas flutuantes -->
+  <div class="particles" aria-hidden="true">
+    <span>🌸</span><span>✨</span><span>💖</span><span>🌷</span>
+    <span>⭐</span><span>🌸</span><span>💕</span><span>✨</span>
+    <span>🌺</span><span>💫</span><span>🌸</span><span>💝</span>
+    <span>✨</span><span>🌷</span><span>💖</span><span>⭐</span>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="ribbon ribbon-left"></div>
+    <div class="ribbon ribbon-right"></div>
+
+    <div class="hero-inner">
+      <p class="pre-title">para a minha</p>
+      <h1 class="main-title">Alice Lins</h1>
+      <div class="divider">
+        <span></span><span class="heart">♡</span><span></span>
+      </div>
+      <h2 class="subtitle">Feliz Aniversário</h2>
+      <p class="date-tag">com todo o meu amor 💌</p>
+    </div>
+
+    <div class="balloons" aria-hidden="true">
+      <div class="balloon b1">🎈</div>
+      <div class="balloon b2">🎈</div>
+      <div class="balloon b3">🎀</div>
+      <div class="balloon b4">🎈</div>
+      <div class="balloon b5">🎈</div>
+    </div>
+  </section>
+
+  <!-- Galeria de fotos -->
+  <section class="gallery-section">
+    <div class="section-header">
+      <h3>Nossos Momentos</h3>
+      <p>cada foto, uma memória que guardo no coração</p>
+    </div>
+
+    <div class="gallery">
+      <!-- Foto 1 -->
+      <div class="photo-card card-tall">
+        <div class="photo-placeholder">
+          <span class="photo-icon">📷</span>
+          <p>Nossa foto favorita</p>
+        </div>
+        <div class="photo-label">Nosso primeiro encontro 🌹</div>
+      </div>
+
+      <!-- Foto 2 -->
+      <div class="photo-card card-wide">
+        <div class="photo-placeholder">
+          <span class="photo-icon">📷</span>
+          <p>Clique para adicionar</p>
+        </div>
+        <div class="photo-label">Uma tarde especial ☀️</div>
+      </div>
+
+      <!-- Foto 3 -->
+      <div class="photo-card">
+        <div class="photo-placeholder">
+          <span class="photo-icon">📷</span>
+          <p>Clique para adicionar</p>
+        </div>
+        <div class="photo-label">Sorrindo juntos 😊</div>
+      </div>
+
+      <!-- Foto 4 -->
+      <div class="photo-card">
+        <div class="photo-placeholder">
+          <span class="photo-icon">📷</span>
+          <p>Clique para adicionar</p>
+        </div>
+        <div class="photo-label">Momentos únicos 💫</div>
+      </div>
+
+      <!-- Foto 5 -->
+      <div class="photo-card card-tall">
+        <div class="photo-placeholder">
+          <span class="photo-icon">📷</span>
+          <p>Clique para adicionar</p>
+        </div>
+        <div class="photo-label">A melhor aventura 🌿</div>
+      </div>
+
+      <!-- Foto 6 -->
+      <div class="photo-card">
+        <div class="photo-placeholder">
+          <span class="photo-icon">📷</span>
+          <p>Clique para adicionar</p>
+        </div>
+        <div class="photo-label">Sempre juntos 🤍</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mensagem de amor -->
+  <section class="message-section">
+    <div class="message-card">
+      <div class="message-deco top-left">✦</div>
+      <div class="message-deco top-right">✦</div>
+      <p class="message-pre">uma cartinha pra você</p>
+      <h3 class="message-title">Minha Alice,</h3>
+      <p class="message-body">
+        Hoje é o dia mais especial do ano — o dia em que você nasceu e iluminou
+        o mundo com a sua presença. Cada momento ao seu lado é um presente que
+        carrego com muito cuidado e carinho. Você é a minha calma e a minha
+        alegria, o meu lugar favorito no mundo.
+      </p>
+      <p class="message-body">
+        Que este novo ano de vida seja repleto de tudo que você merece: amor,
+        saúde, gargalhadas e todos os seus sonhos realizados. Fico feliz demais
+        por poder estar aqui pra celebrar você.
+      </p>
+      <p class="message-signature">Com todo o meu amor,<br/><em>sempre seu 💕</em></p>
+      <div class="message-deco bottom-left">✦</div>
+      <div class="message-deco bottom-right">✦</div>
+    </div>
+  </section>
+
+  <!-- Contagem de razões -->
+  <section class="reasons-section">
+    <div class="section-header light">
+      <h3>Razões para te amar</h3>
+    </div>
+    <div class="reasons-grid">
+      <div class="reason-card">
+        <span class="reason-icon">😄</span>
+        <p>Seu sorriso que ilumina qualquer ambiente</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-icon">🌙</span>
+        <p>Sua calma que me faz sentir em casa</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-icon">🦋</span>
+        <p>A forma única como você vê o mundo</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-icon">💬</span>
+        <p>Nossas conversas que nunca acabam</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-icon">🌸</span>
+        <p>Sua delicadeza e seu coração enorme</p>
+      </div>
+      <div class="reason-card">
+        <span class="reason-icon">✨</span>
+        <p>Tudo que você é e ainda vai ser</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="cake-wrap">🎂</div>
+    <p class="footer-msg">Feliz Aniversário, Alice!</p>
+    <p class="footer-sub">feito com muito 💖 especialmente pra você</p>
+  </footer>
+
+</body>
+</html>

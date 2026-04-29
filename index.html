@@ -1,54 +1,318 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
   <title>Serial Experiments Lopes</title>
-
-  <!-- Fonte Hack -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+  <style>
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    :root {
+      --orange: rgba(204, 78, 0, 1);
+      --dark:   rgba(18, 11, 0, 1);
+      --text:   rgba(255, 255, 255, 0.88);
+      --dim:    rgba(255, 255, 255, 0.28);
+      --accent: rgba(255, 110, 20, 0.6);
+    }
+
+    body {
+      width: 100%; height: 100vh; overflow: hidden;
+      background: var(--orange);
+      color: var(--text);
+      font-family: 'Hack', monospace;
+      display: flex; justify-content: center; align-items: center;
+      position: relative;
+    }
+
+    /* ── ASCII BG ── */
+    .ascii-bg {
+      position: fixed; inset: 0;
+      white-space: pre;
+      color: rgba(36, 20, 0, 0.9);
+      font-size: 20px; line-height: 19px;
+      padding: 8px;
+      user-select: none; pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    /* ── Overlay: vignette + dark bottom ── */
+    .overlay {
+      position: fixed; inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 40%, rgba(0,0,0,0) 20%, rgba(10,5,0,0.55) 100%),
+        linear-gradient(to bottom,
+          rgba(255,255,255,0.04) 0%,
+          rgba(0,0,0,0.08) 30%,
+          rgba(14,8,0,0.97) 75%
+        );
+      z-index: 2;
+    }
+
+    /* ── Scanlines ── */
+    .scanlines {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 3;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px, transparent 3px,
+        rgba(0,0,0,0.045) 3px, rgba(0,0,0,0.045) 4px
+      );
+    }
+
+    /* ── Noise flicker layer ── */
+    .flicker {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 4;
+      opacity: 0;
+      animation: flicker-anim 9s infinite;
+      background: rgba(255, 140, 30, 0.035);
+    }
+    @keyframes flicker-anim {
+      0%,94%,100% { opacity: 0; }
+      95%          { opacity: 1; }
+      96%          { opacity: 0; }
+      97%          { opacity: 0.6; }
+      98%          { opacity: 0; }
+    }
+
+    /* ── Container ── */
+    .container {
+      position: relative; z-index: 10;
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0;
+      animation: emerge 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    @keyframes emerge {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Eyebrow label ── */
+    .eyebrow {
+      font-size: 0.55rem;
+      letter-spacing: 0.35em;
+      color: var(--dim);
+      margin-bottom: 14px;
+      text-transform: italic;
+    }
+
+    /* ── Title ── */
+    h1 {
+      font-size: 1.35rem;
+      font-weight: 400;
+      letter-spacing: 0.55em;
+      color: var(--text);
+      margin-bottom: 6px;
+      position: relative;
+      display: inline-block;
+    }
+    h1::before, h1::after {
+      content: attr(data-text);
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    h1::before {
+      color: rgba(255, 80, 0, 0.45);
+      clip-path: polygon(0 25%, 100% 25%, 100% 45%, 0 45%);
+      animation: g1 7s infinite;
+    }
+    h1::after {
+      color: rgba(0, 200, 255, 0.15);
+      clip-path: polygon(0 65%, 100% 65%, 100% 80%, 0 80%);
+      animation: g2 7s infinite;
+    }
+    @keyframes g1 {
+      0%,88%,100% { transform: translateX(0); opacity: 0; }
+      89% { transform: translateX(-5px); opacity: 1; }
+      91% { transform: translateX(3px); opacity: 0.5; }
+      93% { opacity: 0; }
+    }
+    @keyframes g2 {
+      0%,90%,100% { transform: translateX(0); opacity: 0; }
+      91% { transform: translateX(5px); opacity: 1; }
+      93% { transform: translateX(-2px); opacity: 0.4; }
+      95% { opacity: 0; }
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 100px; height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 18px auto 22px;
+    }
+
+    /* ── Form ── */
+    form {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 14px;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+    .input-wrap::before {
+      content: '>';
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.7rem;
+      color: var(--dim);
+      pointer-events: none;
+      transition: color 0.2s;
+    }
+    .input-wrap:focus-within::before {
+      color: rgba(255,255,255,0.5);
+    }
+
+    input {
+      width: 230px;
+      padding: 9px 10px 9px 26px;
+      background: rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-bottom-color: rgba(255,255,255,0.14);
+      color: var(--text);
+      font-family: 'Hack', monospace;
+      font-size: 0.78rem;
+      outline: none;
+      transition: border-color 0.25s, background 0.25s;
+      caret-color: rgba(255,160,60,0.9);
+    }
+    input::placeholder { color: rgba(255,255,255,0.2); }
+    input:focus {
+      background: rgba(0,0,0,0.35);
+      border-color: rgba(255,255,255,0.18);
+      border-bottom-color: rgba(255,160,60,0.5);
+    }
+
+    /* ── Loading state on input ── */
+    input.loading {
+      border-color: rgba(255,120,30,0.4);
+      animation: pulse-border 0.8s ease-in-out infinite;
+    }
+    @keyframes pulse-border {
+      0%,100% { border-bottom-color: rgba(255,120,30,0.4); }
+      50%      { border-bottom-color: rgba(255,120,30,0.9); }
+    }
+
+    button {
+      width: 80px; padding: 5px 0;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--dim);
+      font-family: 'Hack', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    button:hover:not(:disabled) {
+      color: var(--text);
+      border-color: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.04);
+    }
+    button:disabled {
+      opacity: 0.4; cursor: default;
+    }
+
+    /* ── Status line ── */
+    .status {
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      color: rgba(255,100,30,0.7);
+      height: 1em;
+      margin-top: 4px;
+      transition: opacity 0.3s;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="ascii-bg">
-
-  </div>
-
+  <div class="ascii-bg" id="asciiBg"></div>
   <div class="overlay"></div>
+  <div class="scanlines"></div>
+  <div class="flicker"></div>
 
   <div class="container">
-    <h1>Serial Experiments Lopes</h1>
+    <p class="eyebrow">Spes mea in Deo</p>
+
+    <h1 data-text="Serial Experiments Lopes">Serial Experiments Lopes</h1>
+
+    <div class="divider"></div>
 
     <form id="redirectForm">
-      <input
-        type="text"
-        id="username"
-        placeholder="enter..."
-        autocomplete="off"
-      />
-
-      <button type="submit">connect</button>
+      <div class="input-wrap">
+        <input
+          type="text"
+          id="username"
+          placeholder="enter..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+      <button type="submit" id="connectBtn">connect</button>
+      <p class="status" id="status"></p>
     </form>
   </div>
 
   <script>
-    const form = document.getElementById("redirectForm");
+    /* ── ASCII background ── */
+    const chars = '0101♱011010010101010♱01010110101♱0101010010101010101010101010101';
+    const bg = document.getElementById('asciiBg');
 
-    form.addEventListener("submit", function(e){
+    function fillAscii() {
+      const cols = Math.ceil(window.innerWidth  / 12) + 2;
+      const rows = Math.ceil(window.innerHeight / 19) + 2;
+      let out = '';
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++)
+          out += chars[Math.floor(Math.random() * chars.length)];
+        out += '\n';
+      }
+      bg.textContent = out;
+    }
+
+    fillAscii();
+    setInterval(fillAscii, 110);
+    window.addEventListener('resize', fillAscii);
+
+    /* ── Form logic ── */
+    const form    = document.getElementById('redirectForm');
+    const input   = document.getElementById('username');
+    const btn     = document.getElementById('connectBtn');
+    const status  = document.getElementById('status');
+
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
 
-      const value = document
-        .getElementById("username")
-        .value
-        .trim();
+      const value = input.value.trim();
+      if (!value) return;
 
-      if(value){
-        window.location.href = "/" + encodeURIComponent(value);
+      const target = encodeURIComponent(value) + '/index.html';
+
+      input.classList.add('loading');
+      btn.disabled = true;
+      status.textContent = 'connecting...';
+
+      try {
+        const res = await fetch(target, { method: 'HEAD' });
+
+        if (res.ok) {
+          status.textContent = 'found. redirecting...';
+          setTimeout(() => { window.location.href = target; }, 300);
+        } else {
+          throw new Error('not found');
+        }
+      } catch {
+        status.textContent = '';
+        input.classList.remove('loading');
+        btn.disabled = false;
+        window.location.href = '404.html';
       }
     });
   </script>
