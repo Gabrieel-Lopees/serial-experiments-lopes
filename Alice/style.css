@@ -513,8 +513,9 @@ body {
 
 @media (max-width: 480px) {
   .gallery {
-    grid-template-columns: 1fr;
-    grid-auto-rows: 220px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 140px;
+    gap: 10px;
   }
   .card-wide, .card-tall {
     grid-column: span 1;
