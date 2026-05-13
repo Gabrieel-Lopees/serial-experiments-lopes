@@ -14,7 +14,7 @@ body{
   background:rgba(204,78,00,1.0);
   color:white;
 
-  font-family:'Regular', monospace;
+  font-family:'Monospace';
 
   display:flex;
   justify-content:center;
@@ -100,7 +100,7 @@ input{
 
   color:white;
 
-  font-family:'Regular', monospace;
+  font-family:'Monospace';
   font-size:0.8rem;
 
   outline:none;
@@ -124,7 +124,7 @@ button{
 
   cursor:pointer;
 
-  font-family:'Regular', monospace;
+  font-family:'Monospace';
   font-size:0.7rem;
 
   transition:0.2s;

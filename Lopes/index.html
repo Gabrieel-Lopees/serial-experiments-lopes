@@ -1,0 +1,111 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Monge Lopes</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="ascii-bg" id="asciiBg"></div>
+
+  <div class="overlay"></div>
+  <div class="scanlines"></div>
+
+  <main class="container">
+
+    <p class="eyebrow">Cogito • Creo • Dissolvo</p>
+
+    <h1 data-text="MONGE LOPES">
+      MONGE LOPES
+    </h1>
+
+    <p class="subtitle">
+      matemática • filosofia • tecnologia • ocultismo
+    </p>
+
+    <div class="divider"></div>
+
+
+<div class="main-layout">
+
+    <section class="posts">
+
+      <a href="#" class="post">
+        <span class="index">[01]</span>
+        <div>
+          <h2>Por que a internet morreu</h2>
+          <p>bots, algoritmos e o fim da autenticidade digital</p>
+        </div>
+      </a>
+
+      <a href="#" class="post">
+        <span class="index">[02]</span>
+        <div>
+          <h2>Matemática como arma metafísica</h2>
+          <p>números moldam percepção e realidade</p>
+        </div>
+      </a>
+
+      <a href="#" class="post">
+        <span class="index">[03]</span>
+        <div>
+          <h2>Linux é ascetismo moderno</h2>
+          <p>controle absoluto contra consumo passivo</p>
+        </div>
+      </a>
+
+      <a href="#" class="post">
+        <span class="index">[04]</span>
+        <div>
+          <h2>O problema espiritual da dopamina</h2>
+          <p>prazer infinito, vontade zero</p>
+        </div>
+      </a>
+
+    </section>
+
+  <aside class="side-image">
+    <img src="Images/imagem.jpg" alt="">
+  </aside>
+
+</div>
+
+    <footer>
+      <p class="footer">© Copyright 2026 Serial Experiments Lopes</p>
+      <p class="footer-sub">feito com muito especialmente pra você</p>
+    </footer>
+
+  </main>
+
+<script>
+
+const chars = "01†010101101010101✝010101010110101";
+const bg = document.getElementById("asciiBg");
+
+function generateAscii() {
+  const cols = Math.ceil(window.innerWidth / 12);
+  const rows = Math.ceil(window.innerHeight / 18);
+
+  let output = "";
+
+  for(let y = 0; y < rows; y++) {
+    for(let x = 0; x < cols; x++) {
+      output += chars[Math.floor(Math.random() * chars.length)];
+    }
+    output += "\n";
+  }
+
+  bg.textContent = output;
+}
+
+generateAscii();
+setInterval(generateAscii, 200);
+window.addEventListener("resize", generateAscii);
+
+</script>
+
+</body>
+</html>
