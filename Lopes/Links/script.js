@@ -1,4 +1,4 @@
-const chars = "01†010101101010101✝010101010110101";
+const chars = '░▒▓│┤╡╢╖╕╣║╗╝╜╛┐└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀αßΓπΣσµτΦΘΩδ∞∩';
 
 const bg = document.getElementById("asciiBg");
 const search = document.getElementById("search");
