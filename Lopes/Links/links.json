@@ -1,0 +1,17 @@
+[
+  {
+    "nome": "",
+    "url": "https://github.com",
+    "descricao": "código e projetos"
+  },
+  {
+    "nome": "Arch Wiki",
+    "url": "https://wiki.archlinux.org",
+    "descricao": "documentação do Arch Linux"
+  },
+  {
+    "nome": "arXiv",
+    "url": "https://arxiv.org",
+    "descricao": "papers científicos"
+  }
+]
