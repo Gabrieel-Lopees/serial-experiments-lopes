@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Você, Meu Amor 💕</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Playfair Display (display) + Lato (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===================== PÉTALAS CAINDO (canvas) ===================== -->
+  <canvas id="petals-canvas"></canvas>
+
+  <!-- ===================== PLAYER DE MÚSICA ===================== -->
+  <div class="music-player" id="musicPlayer">
+    <button class="music-btn" id="musicBtn" title="Música romântica">
+      <span class="music-icon">♪</span>
+    </button>
+    <span class="music-label">Música</span>
+    <!-- Substitua o src pelo caminho do seu arquivo de música -->
+    <audio id="bgMusic" loop>
+      <source src="music.mp3" type="audio/mpeg" />
+    </audio>
+  </div>
+
+  <!-- ===================== HERO SECTION ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-content fade-in">
+      <p class="hero-eyebrow">Feliz Dia dos Namorados</p>
+      <h1 class="hero-title">Para a pessoa<br /><em>que ilumina</em><br />minha vida</h1>
+      <p class="hero-subtitle">Esta página foi feita com todo o meu amor, só para você.</p>
+      <a href="#contador" class="hero-cta scroll-arrow">
+        <span>Descubra</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===================== CONTADOR ===================== -->
+  <section class="section" id="contador">
+    <div class="container">
+      <p class="section-eyebrow reveal">nosso tempo juntos</p>
+      <h2 class="section-title reveal">Cada segundo ao seu lado<br />é um presente</h2>
+      <div class="counter-grid reveal">
+        <div class="counter-card glass">
+          <span class="counter-number" id="countDays">0</span>
+          <span class="counter-label">Dias</span>
+        </div>
+        <div class="counter-card glass">
+          <span class="counter-number" id="countHours">0</span>
+          <span class="counter-label">Horas</span>
+        </div>
+        <div class="counter-card glass">
+          <span class="counter-number" id="countMinutes">0</span>
+          <span class="counter-label">Minutos</span>
+        </div>
+        <div class="counter-card glass">
+          <span class="counter-number" id="countSeconds">0</span>
+          <span class="counter-label">Segundos</span>
+        </div>
+      </div>
+      <p class="counter-since reveal">Desde o dia em que tudo começou ✦</p>
+    </div>
+  </section>
+
+  <!-- ===================== CARTAS ===================== -->
+  <section class="section section-dark" id="cartas">
+    <div class="container">
+      <p class="section-eyebrow reveal">palavras do coração</p>
+      <h2 class="section-title reveal">Cartas para você</h2>
+      <div class="envelopes-row" id="envelopesRow">
+
+        <!-- Carta 1 -->
+        <div class="envelope-wrap reveal" data-index="0">
+          <div class="envelope" id="env0">
+            <div class="env-front">
+              <div class="env-flap"></div>
+              <div class="env-body">
+                <span class="env-icon">✉</span>
+                <span class="env-title">Para minha amada</span>
+                <span class="env-hint">Clique para abrir</span>
+              </div>
+              <div class="env-seal">♥</div>
+            </div>
+            <div class="env-letter">
+              <div class="env-letter-inner">
+                <span class="env-letter-icon">🌹</span>
+                <h3 class="env-letter-title">Para minha amada</h3>
+                <p class="env-letter-text">Desde que você entrou na minha vida, aprendi que o amor não é perfeito — mas é real, é bonito, é seu. Cada manhã ao seu lado é um motivo a mais para sorrir. Obrigado por existir do jeito que você é.</p>
+                <span class="env-letter-close">× Fechar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carta 2 -->
+        <div class="envelope-wrap reveal" data-index="1" style="transition-delay:.12s">
+          <div class="envelope" id="env1">
+            <div class="env-front">
+              <div class="env-flap"></div>
+              <div class="env-body">
+                <span class="env-icon">✉</span>
+                <span class="env-title">Sobre nós dois</span>
+                <span class="env-hint">Clique para abrir</span>
+              </div>
+              <div class="env-seal">♥</div>
+            </div>
+            <div class="env-letter">
+              <div class="env-letter-inner">
+                <span class="env-letter-icon">💫</span>
+                <h3 class="env-letter-title">Sobre nós dois</h3>
+                <p class="env-letter-text">Há coisas que só nós dois sabemos. Os risos às três da manhã, os planos que fazemos como se tivéssemos todo o tempo do mundo, a cumplicidade que não precisa de palavras. Isso é o que somos — e é lindo.</p>
+                <span class="env-letter-close">× Fechar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carta 3 -->
+        <div class="envelope-wrap reveal" data-index="2" style="transition-delay:.24s">
+          <div class="envelope" id="env2">
+            <div class="env-front">
+              <div class="env-flap"></div>
+              <div class="env-body">
+                <span class="env-icon">✉</span>
+                <span class="env-title">Minha promessa</span>
+                <span class="env-hint">Clique para abrir</span>
+              </div>
+              <div class="env-seal">♥</div>
+            </div>
+            <div class="env-letter">
+              <div class="env-letter-inner">
+                <span class="env-letter-icon">🕊️</span>
+                <h3 class="env-letter-title">Minha promessa</h3>
+                <p class="env-letter-text">Prometo estar aqui nos dias fáceis e nos difíceis. Prometo te surpreender sempre que puder, te ouvir quando precisar e te amar cada vez mais fundo. Hoje, amanhã e em todos os dias que ainda vão vir.</p>
+                <span class="env-letter-close">× Fechar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALERIA ===================== -->
+  <section class="section" id="galeria">
+    <div class="container">
+      <p class="section-eyebrow reveal">nossas memórias</p>
+      <h2 class="section-title reveal">Momentos que guardo<br />no coração</h2>
+    </div>
+    <div class="carousel-wrapper reveal">
+      <button class="carousel-btn carousel-prev" id="prevBtn">&#8592;</button>
+      <div class="carousel-track-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+          <!-- Slides gerados pelo JS -->
+        </div>
+      </div>
+      <button class="carousel-btn carousel-next" id="nextBtn">&#8594;</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </section>
+
+  <!-- ===================== LINHA DO TEMPO ===================== -->
+  <section class="section section-dark" id="timeline">
+    <div class="container">
+      <p class="section-eyebrow reveal">nossa história</p>
+      <h2 class="section-title reveal">Os capítulos<br />do nosso amor</h2>
+      <div class="timeline" id="timelineEl">
+        <!-- Gerado pelo JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CARTA DE AMOR ===================== -->
+  <section class="section" id="carta">
+    <div class="container carta-container">
+      <p class="section-eyebrow reveal">uma carta para você</p>
+      <h2 class="section-title reveal">Do fundo do meu coração</h2>
+      <div class="carta-glass glass reveal">
+        <div class="carta-header">
+          <span class="carta-rose">✿</span>
+        </div>
+        <p class="carta-text" id="cartaText"></p>
+        <p class="carta-assinatura" id="cartaAssinatura"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <p>Feito com <span class="heart-beat">♥</span> especialmente para você</p>
+    <p class="footer-sub">Feliz Dia dos Namorados</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
