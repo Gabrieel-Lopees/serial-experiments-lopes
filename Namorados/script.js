@@ -14,22 +14,26 @@ const START_DATE = new Date(2026, 3, 15); // 12 de junho de 2023
 // Se não tiver foto, um placeholder elegante será exibido
 const PHOTOS = [
   {
-    src: "",
-    title: "Nosso primeiro encontro",
-    caption: "O dia em que tudo começou",
+    src: "foto1.png",
+    title: "",
+    caption: "",
   },
   {
-    src: "",
-    title: "Nossa viagem",
-    caption: "Aventuras que guardarei para sempre",
+    src: "foto2.jpeg",
+    title: "",
+    caption: "",
   },
-  { src: "", title: "Nosso aniversário", caption: "Celebrando nosso amor" },
   {
-    src: "",
-    title: "Dia especial",
-    caption: "Um momento que ficou na memória",
+    src: "foto3.jpeg",
+    title: "",
+    caption: "",
   },
-  { src: "", title: "Juntos", caption: "Simplesmente felizes" },
+  {
+    src: "foto4.jpeg",
+    title: "",
+    caption: "",
+  },
+  { src: "foto5.png", title: "", caption: "" },
 ];
 
 // Linha do tempo do relacionamento
@@ -271,7 +275,7 @@ const LETTER_SIGNATURE = "— teu Amoreco ♥";
       slide.innerHTML = `
         <div class="carousel-placeholder">
           <span class="carousel-placeholder-icon">📷</span>
-          <span class="carousel-placeholder-text">Adicione sua foto aqui</span>
+          <span class="carousel-placeholder-text">image.jpeg</span>
         </div>
       `;
     }
@@ -313,7 +317,7 @@ const LETTER_SIGNATURE = "— teu Amoreco ♥";
   });
 
   // auto-play a cada 5s
-  setInterval(() => goTo(current + 1), 5000);
+  setInterval(() => goTo(current + 1), 8000);
 })();
 
 // ── 6. LINHA DO TEMPO ────────────────────────────────────────
